@@ -1,0 +1,26 @@
+{
+  "name": "theintegratorjs",
+  "version": "1.0.0",
+  "description": "The Integrator JS ",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server",
+    "server": "nodemon server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://neltro68@github.com/neltro68/theintegratorjs.git"
+  },
+  "author": "Renel Castro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/neltro68/theintegratorjs/issues"
+  },
+  "homepage": "https://github.com/neltro68/theintegratorjs#readme",
+  "dependencies": {
+    "config": "^3.3.1",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.27"
+  }
+}
