@@ -4,7 +4,7 @@ const salesSchemaIndex = require('../config/default.json').salesSchemaIndex;
 const uploads = require('../config/default.json').uploads;
 const parse = require('csv-parse');
 
-module.exports.recordCreate = (filename) => {
+module.exports.createRecord = (filename) => {
     fs.createReadStream(uploads + filename)
     .pipe(
         parse({
@@ -25,7 +25,6 @@ module.exports.recordCreate = (filename) => {
             }
         })
         .on('data', function(dataRow){
-            console.log(dataRow);
             const userSales = {
                 user_name: dataRow[salesSchemaIndex.user_name],
                 age: dataRow[salesSchemaIndex.age],
@@ -35,7 +34,6 @@ module.exports.recordCreate = (filename) => {
                 last_purchase_date: dataRow[salesSchemaIndex.last_purchase_date]
             }
             try{
-                console.log('creating new sale record');
                 let sale = new Sales(userSales);
                 sale.save();
                 return sale;

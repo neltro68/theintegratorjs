@@ -1,6 +1,6 @@
 const express = require('express');
 const uploadsPath = require('../config/default.json').uploads;
-const userSalesService = require('../services/usersalesservice');
+const { createRecord } = require('../services/usersalesservice');
 const Sales = require('../models/Sales');
 const router = express.Router();
 
@@ -12,7 +12,7 @@ router.post('/', (req,res) => {
         file.mv(uploadsPath + filename , function(err,ressult){
             if (err)
                 throw err;
-            userSalesService.recordCreate(filename);
+            createRecord(filename);
             res.send({
                 sucess: true,
                 message: 'File Uploaded!'

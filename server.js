@@ -19,7 +19,16 @@ app.use('/sales/report', require('./routes/report'));
 app.use('/sales/record', require('./routes/record'));
 
 app.get('/', (req, res) => {
-    res.send('API Running');
+    res.send(`<h3>End points : </h3>
+                <ul>
+                <li>
+                    /sales/report <br />
+                    csv = name of element
+                </li>
+                <li>
+                    /sales/record
+                </li>
+                <ul>`);
 })
 
 app.listen(PORT, () => {
