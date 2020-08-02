@@ -1,4 +1,6 @@
 const express = require('express');
+const bodyParser = require('body-parser');
+const fileUpload = require('express-fileupload');
 const connectDB = require('./config/db');
 const app = express();
 const PORT = process.env.PORT || 5001;
@@ -7,11 +9,14 @@ const PORT = process.env.PORT || 5001;
 connectDB();
 
 // init middleware
+app.use(bodyParser.json());
 app.use(express.json({ extended: false}));
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(fileUpload());
 
 // define routes
-app.use('/sales/report', require('./routes/report'))
-app.use('/sales/record', require('./routes/record'))
+app.use('/sales/report', require('./routes/report'));
+app.use('/sales/record', require('./routes/record'));
 
 app.get('/', (req, res) => {
     res.send('API Running');

@@ -17,7 +17,7 @@ const SalesSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    sales_amount: {
+    sale_amount: {
         type: Number,
         required: true
     },
@@ -27,4 +27,4 @@ const SalesSchema = new mongoose.Schema({
     }
 });
 
-module.exports = Sales = mongoose.model(sales, UserSchema);
+module.exports = Sales = mongoose.model('sales', SalesSchema);
