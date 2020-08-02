@@ -18,7 +18,7 @@ router.post('/', async (req,res) => {
     }
 });
 
-router.post('/:date', async (req,res) => {
+router.get('/:date', async (req,res) => {
     try{
         const date = req.params.date;
         if (date)

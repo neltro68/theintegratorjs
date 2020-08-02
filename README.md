@@ -6,5 +6,8 @@ Post endpoints :
 ```
 /sales/record < csv file >
 /sales/report < fromDate > < toDate >
-/sales/report < date >
+```
+Get endpoint :
+```
+/sales/report/< date >
 ```
